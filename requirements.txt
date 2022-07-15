@@ -1,0 +1,15 @@
+Django
+djangorestframework
+django-rest-swagger
+django-filter
+markdown
+django-cors-headers
+django-versatileimagefield
+django-model-utils
+djoser
+requests
+Pillow
+python-dotenv
+drf-writable-nested
+django-constance[database]
+psycopg2-binary
