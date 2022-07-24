@@ -168,18 +168,6 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
 
-CONSTANCE_ADDITIONAL_FIELDS = {
-    'language_select': ['django.forms.fields.ChoiceField', {
-        'widget': 'django.forms.Select',
-        'choices': (("EN", "English"), ("NO", "Norway"))
-    }],
-}
-
-CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
-CONSTANCE_CONFIG = {
-    'LANGUAGE': ('EN', 'Select language', 'language_select'),
-}
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=14),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
