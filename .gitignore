@@ -174,3 +174,4 @@ cython_debug/
 
 static/*
 media/*
+dump

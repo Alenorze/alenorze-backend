@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: nginx
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    command: [ nginx, '-g', 'daemon off;' ]
+    ports:
+      - "80:80"
+    volumes:
+      - .:/code
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    volumes:
+      - ./backend:/code
+    env_file:
+      - ./backend/.env
+    command: >
+      bash -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn config.wsgi:application --log-level debug --timeout 120 --bind 0.0.0.0:8000 --reload"
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: db
+    build:
+      context: .
+      dockerfile: ./docker/postgres/Dockerfile
+    restart: always
+    env_file:
+      - ./backend/.env
+    environment:
+      - POSTGRES_DB=$${POSTGRES_DB}
+      - POSTGRES_USER=$${POSTGRES_USER}
+      - POSTGRES_PASSWORD=$${POSTGRES_PASSWORD}
+    expose:
+      - 5432
+    volumes:
+      - ./dump:/var/lib/postgresql/data
