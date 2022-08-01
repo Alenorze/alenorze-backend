@@ -34,6 +34,8 @@ services:
       dockerfile: ./docker/backend/Dockerfile
     volumes:
       - ./backend:/code
+      - ./static:/code
+      - ./media:/code
     env_file:
       - ./backend/.env
     command: >
