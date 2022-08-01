@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['alenorze.dev', 'www.alenorze.dev']
 
 DATABASES = {
     'default': {
