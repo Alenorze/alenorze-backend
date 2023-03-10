@@ -667,11 +667,14 @@ h1 {
   text-align: center;
 }
 .links .linkedin,
+.links .github,
+.links .telegram,
+.links .youtube,
 .links .facebook,
 .links .twitter,
-.links .youtube,
-.links .github,
-.links .instagram {
+.links .instagram,
+.links .tiktok,
+.links .udemy {
   display: inline-block;
   margin: 10px;
   -webkit-transition: 1s;
@@ -679,11 +682,14 @@ h1 {
   border-radius: 5px;
 }
 .links .fa-linkedin,
+.links .fa-github,
+.links .fa-telegram,
+.links .fa-youtube,
 .links .fa-facebook,
 .links .fa-twitter,
-.links .fa-youtube,
-.links .fa-github,
-.links .fa-instagram {
+.links .fa-instagram,
+.links .fa-tiktok,
+.links .fa-u {
   padding: 10px;
   height: 70px;
   width: 75px;
@@ -691,11 +697,14 @@ h1 {
   color: white;
 }
 .links .linkedin:hover,
+.links .github:hover,
+.links .telegram:hover,
 .links .youtube:hover,
 .links .facebook:hover,
 .links .twitter:hover,
-.links .github:hover,
-.links .instagram:hover {
+.links .instagram:hover,
+.links .tiktok:hover,
+.links .udemy:hover {
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
   -webkit-transform: rotate(360deg);
@@ -707,17 +716,26 @@ h1 {
 .links .github {
   background-color: #161b22;
 }
+.links .telegram {
+  background-color: #229ED9;
+}
+.links .youtube {
+  background-color: #E62117;
+}
 .links .facebook {
   background-color: #3b5998;
 }
 .links .twitter {
   background-color: #5EA9DD;
 }
-.links .youtube {
-  background-color: #E62117;
-}
 .links .instagram {
   background: linear-gradient(60deg, #F9C556, #F97621, #EA484C, #D72F78, #A93AB5, #5B62D1);
+}
+.links .tiktok {
+  background-color: #000;
+}
+.links .udemy {
+  background-color: #a435f0;
 }
 
 @-webkit-keyframes bounce {
