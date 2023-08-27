@@ -22,24 +22,9 @@
 	position: relative;
     padding: 12px;
     width: 368px;
+    height: 600px;
     max-width: 368px;
     flex-grow: 1;
-
-	&::before {
-		content: '';
-		position: absolute;
-		left: 50%;
-		width: 200%;
-		max-width: 200%;
-		height: 435px;
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: 100%;
-		bottom: 18.8%;
-		-webkit-transform: translateX(-50%);
-		transform: translateX(-50%);
-		background-image: url('../images/pricing-illustration.svg');
-	}
 }
 
 .pricing-table-header,
@@ -53,8 +38,12 @@
     display: flex;
     flex-wrap: wrap;
     background: color(bg, 4);
+    color: #fff;
     padding: 24px;
     height: 100%;
+	border-radius: 10px;
+    text-align: center;
+    font-size: 26px;
 
     > * {
 		position: relative; /* To display all elements above the box with shadow */
@@ -71,6 +60,22 @@
         @include shadow;
     }
 }
+
+.pricing-table-inner.django {
+    background-image: url('https://c0.wallpaperflare.com/preview/440/715/681/dark-green-green-elaf-dark-background.jpg');
+    background-size: cover;
+    background-position: 30%;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px rgba(0, 74, 5, 0.759);
+}
+
+.pricing-table-inner.junior-interview {
+    background-image: url('https://img.freepik.com/premium-photo/two-chairs-microphones-podcast-interview-talk-show-room-copy-space-background-generative-ai_890176-257.jpg');
+    background-size: cover;
+    background-position: 30%;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px rgba(0, 255, 221, 0.759);
+} 
 
 .pricing-table-price {
 	@if ( get-font-family(heading) != get-font-family(base) ) {
@@ -91,17 +96,10 @@
 
     li {
         display: flex;
-        align-items: center;
+        text-align: left;
         padding: 14px 0;
-
-        &::before {
-			content: '';
-		    width: 16px;
-		    height: 12px;
-		    margin-right: 16px;
-		    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTUuNiA2LjRMMS42IDQgMCA1LjYgNS42IDEyIDE2IDEuNiAxNC40IDB6IiBmaWxsPSIjMDJDQkIxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=);
-		    background-repeat: no-repeat;
-		}
+        color: #eeeeee;
+        font-size: 16px;
     }
 }
 

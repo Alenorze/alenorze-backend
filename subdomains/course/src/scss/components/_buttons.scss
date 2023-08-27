@@ -11,7 +11,7 @@
     text-decoration: none !important;
 	text-transform: uppercase;
     background-color: color(bg, 3);
-    color: color(typography, 1) !important;
+    color: color(typography, 3);
     border: none;
     border-radius: 2px;
     cursor: pointer;
@@ -40,12 +40,26 @@
 }
 
 .button-primary {
-	background: mix(color(primary, 1), color(primary, 2));
-    background: linear-gradient(65deg, color(primary, 1) 0, color(primary, 2) 100%);
+    background: linear-gradient(65deg, color(primary, 3) 0, color(primary, 2) 100%);
 
     &:hover {
-		background: lighten(mix(color(primary, 1), color(primary, 2)), 2%);
-        background: linear-gradient(65deg, lighten(color(primary, 1), 2%) 0, lighten(color(primary, 2), 2%) 100%);
+        background: linear-gradient(65deg, lighten(color(primary, 3), 10%) 0, lighten(color(primary, 2), 10%) 100%);
+    }
+}
+
+.button-secondary {
+    background: #999;
+
+    &:hover {
+        background: #333
+    }
+}
+
+.button-green {
+    background: #3affa0;
+
+    &:hover {
+        background: #00ff84;
     }
 }
 

@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: nginx
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/nginx/dev/Dockerfile
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    ports:
+      - "8002:8002"
+    volumes:
+      - .:/code
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    env_file:
+      - ./backend/.env
+    command: >
+      bash -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db
+
+  db:
+    container_name: db
+    image: postgres:14
+    restart: always
+    env_file:
+      - ./backend/.env
+    environment:
+      - POSTGRES_DB=$${POSTGRES_DB}
+      - POSTGRES_USER=$${POSTGRES_USER}
+      - POSTGRES_PASSWORD=$${POSTGRES_PASSWORD}
+    expose:
+      - 5432
+    volumes:
+      - ./dump:/var/lib/postgresql/data:rw

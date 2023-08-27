@@ -2,9 +2,9 @@
 # Variables, functions and mixins
 --------------------------------------------------------------*/
 @import "abstracts/variables",
-        "abstracts/functions",
-        "abstracts/mixins",
-        'abstracts/include-media';
+"abstracts/functions",
+"abstracts/mixins",
+'abstracts/include-media';
 
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -72,3 +72,190 @@
 # Footer
 --------------------------------------------------------------*/
 @import "layout/footer";
+
+
+@keyframes aitf {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	100% {
+		background-position: 100% 50%;
+	}
+}
+
+
+.alenorze {
+	display: inline-block;
+	padding: 100px 0;
+	background-image: url(../images/alenorze.png);
+	background-size: cover;
+	width: 100%;
+	height: 1000px;
+}
+
+.alenorze-section {
+	background-color: #000;
+	text-align: center;
+}
+
+// @font-face {
+// 	font-family: Minecraftia;
+// 	src: url();
+// }
+
+@mixin flex-center-hv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Minecraft Style Menu */
+.menu {
+	display: inline-block;
+	margin-top: 100px;
+}
+
+.mc-menu {
+	--btn-size: 30pt;
+	display: grid;
+	grid-template-columns: var(--btn-size) calc(var(--btn-size) * 10) var(--btn-size);
+	grid-template-rows: repeat(3, var(--btn-size)) 16px var(--btn-size);
+	grid-template-areas:
+		'. 		first 		.'
+		'. 		second 		.'
+		'. 		third 		.'
+		'.		.					.'
+		'lang fourth 		.'
+	;
+	grid-gap: 8px;
+
+	& .mc-button:nth-child(1) {
+		grid-area: first;
+	}
+
+	& .mc-button:nth-child(2) {
+		grid-area: second;
+	}
+
+	& .mc-button:nth-child(3) {
+		grid-area: third;
+	}
+
+	& .double {
+		grid-area: fourth;
+
+		& .mc-button:nth-child(1) {
+			grid-area: left;
+		}
+
+		& .mc-button:nth-child(2) {
+			grid-area: right;
+		}
+	}
+
+	& .mc-button:nth-child(5) {
+		grid-area: lang;
+	}
+
+	// Double button
+	& .double {
+		width: 100%;
+		height: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: 'left right';
+		grid-gap: 8px;
+	}
+
+}
+
+/* Minecraft Style Button */
+.mc-button {
+	height: var(--btn-size);
+	width: calc(var(--btn-size) * 10);
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	user-select: none;
+
+	background: #999 url('https://i.ibb.co/rb2TWXL/bgbtn.png') center / cover;
+	image-rendering: pixelated;
+	border: 2px solid #000;
+
+	/* Mouse over */
+	&:hover .title {
+		background-color: rgba(100, 100, 255, .45);
+		text-shadow: 2px 2px #202013cc;
+		color: #FFFFA0;
+	}
+
+	&:active .title {
+		box-shadow: inset -2px -4px #0004, inset 2px 2px #fff5;
+	}
+
+	/* Button title */
+	.title {
+		width: 100%;
+		height: 100%;
+		padding-bottom: .3em;
+		@include flex-center-hv;
+
+		color: #DDD;
+		text-shadow: 2px 2px #000A;
+		box-shadow: inset -2px -4px #0006, inset 2px 2px #fff7;
+	}
+
+	/* Others */
+	&.full {
+		width: 100%;
+		height: 100%;
+	}
+
+	&.lang {
+		& img {
+			width: 26px;
+			height: 26px;
+		}
+
+		& .title {
+			padding-bottom: 0;
+		}
+	}
+}
+
+
+.alenorze-title {
+	font-size: 3em;
+	color: #eeeeee;
+	margin-bottom: 100px;
+}
+
+
+#subtitle {
+	text-align: center;
+	font-size: 1.3em;
+	color: #ff0;
+	text-shadow: 1px 1px 0px #000;
+	position: relative;
+	left: 190px;
+	bottom: 110px;
+	-webkit-animation: subtitle 0.25s;
+	animation: subtitle 0.25s;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+
+@keyframes subtitle {
+	0% {
+		transform: scale(0.875) rotate(-20deg);
+	}
+
+	100% {
+		transform: scale(1) rotate(-20deg);
+	}
+}

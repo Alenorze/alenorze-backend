@@ -1,6 +1,6 @@
-/*!******************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/app.sass ***!
-  \******************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/static/sass/app.sass ***!
+  \*************************************************************************************************************************************************************/
 html,
 body,
 div,
@@ -663,7 +663,7 @@ h1 {
 }
 
 .links {
-  margin-top: 3em;
+  margin-top: 0.75em;
   text-align: center;
 }
 .links .linkedin,
@@ -1314,5 +1314,82 @@ body.isworks {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+.course {
+  text-align: center;
+}
+
+.course-link {
+  font-family: "Open sans", sans-serif;
+  margin-top: 2em;
+  width: 80%;
+  padding: 30px 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.75);
+  outline: none;
+  background: #fb2f2f;
+  border: none;
+  z-index: 1;
+  -webkit-animation: pulse 5s ease-in-out infinite alternate;
+          animation: pulse 5s ease-in-out infinite alternate;
+}
+.course-link:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #ff008c;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.course-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.course-link:hover:after {
+  left: 0;
+  width: 100%;
+}
+.course-link:active {
+  top: 2px;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }

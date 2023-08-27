@@ -8,12 +8,6 @@ html {
 	box-sizing: inherit;
 }
 
-body {
-	background: color(bg, 2); /* Fallback for when there is no custom background color defined. */
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-}
-
 hr {
 	border: 0;
 	@include divider();
